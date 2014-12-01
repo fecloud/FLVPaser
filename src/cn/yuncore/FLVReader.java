@@ -136,6 +136,10 @@ public class FLVReader {
 					flvVideoTagBody.setData(bs);
 					paserVideoBody(flvVideoTagBody);
 					body = flvVideoTagBody;
+				} else if (tag.getHeader().getType() == 0x12) {
+					final FLVScriptTagBody flvScriptTagBody = new FLVScriptTagBody();
+					flvScriptTagBody.setData(bs);
+					body = flvScriptTagBody;
 				}
 
 				tag.setBody(body);
